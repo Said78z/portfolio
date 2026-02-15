@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Fira Code', monospace;
+  overflow-x: hidden;
+}
+
+/* Glitch Effect */
+.glitch {
+  position: relative;
+  animation: glitch-text 3s infinite;
+}
+
+.glitch::after,
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch::after {
+  animation: glitch-anim-2 2s infinite;
+  color: #39ff14;
+  z-index: -2;
+}
+
+.glitch::before {
+  animation: glitch-anim 2s infinite;
+  color: #0078d4;
+  z-index: -1;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip-path: inset(40% 0 61% 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(92% 0 1% 0);
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    clip-path: inset(43% 0 1% 0);
+    transform: translate(-2px, -2px);
+  }
+  60% {
+    clip-path: inset(25% 0 58% 0);
+    transform: translate(2px, -2px);
+  }
+  80% {
+    clip-path: inset(54% 0 7% 0);
+    transform: translate(2px, 2px);
+  }
+  100% {
+    clip-path: inset(58% 0 43% 0);
+    transform: translate(0);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(5% 0 58% 0);
+    transform: translate(2px, 2px);
+  }
+  40% {
+    clip-path: inset(77% 0 8% 0);
+    transform: translate(-2px, 2px);
+  }
+  60% {
+    clip-path: inset(40% 0 59% 0);
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    clip-path: inset(63% 0 8% 0);
+    transform: translate(2px, -2px);
+  }
+  100% {
+    clip-path: inset(41% 0 5% 0);
+    transform: translate(0);
+  }
+}
+
+/* Neon Glow Effects */
+.neon-glow-blue {
+  box-shadow: 0 0 30px rgba(0, 120, 212, 0.8), 0 0 60px rgba(0, 120, 212, 0.4);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.8), 0 0 60px rgba(57, 255, 20, 0.4);
+}
+
+.neon-glow-red {
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 60px rgba(255, 0, 0, 0.4);
+}
+
+/* Button Styles */
+button {
+  transition: all 0.3s ease;
+}
+
+.btn-neon-blue {
+  @apply px-6 py-3 bg-neon-blue text-white font-bold rounded border-2 border-neon-blue hover:scale-105 hover:shadow-neon-blue active:scale-95 transition-all;
+}
+
+.btn-neon-red {
+  @apply px-6 py-3 bg-neon-red text-white font-bold rounded border-2 border-neon-red hover:scale-105 hover:shadow-neon-red active:scale-95 transition-all;
+}
+
+.btn-neon-green {
+  @apply px-6 py-3 bg-neon-green text-dark-bg font-bold rounded border-2 border-neon-green hover:scale-105 hover:shadow-neon-green active:scale-95 transition-all;
+}
+
+/* Cards */
+.card-cyber {
+  @apply bg-dark-card border-2 border-neon-blue rounded-lg p-6 hover:border-neon-green hover:shadow-neon-blue transition-all duration-300 transform hover:scale-105 hover:-translate-y-2;
+}
+
+/* Scrollbar Custom */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0078d4;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+}
